@@ -1,6 +1,6 @@
 # ~/.zshrc file for zsh interactive shells.
 # see /usr/share/doc/zsh/examples/zshrc for examples
-echo "text coming from .zshrc, some features are diabled with '#'"
+echo "text coming from ~/.zshrc, some features are diabled by '#'"
 
 setopt autocd              # change directory just by typing its name
 #setopt correct            # auto correct mistakes
@@ -154,14 +154,14 @@ precmd() {
     print -Pnr -- "$TERM_TITLE"
 
     # Print a new line before the prompt, but only if it is not the first line
-#    if [ "$new_line_before_prompt" = yes ]; then
-#	if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
-#	    _NEW_LINE_BEFORE_PROMPT=1
-#	else
-#	    print ""
-#	fi
-#   fi
-#}
+    if [ "$new_line_before_prompt" = yes ]; then
+	if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
+	    _NEW_LINE_BEFORE_PROMPT=1
+	else
+	    print ""
+	fi
+   fi
+}
 
 # enable color support of ls, less and man, and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -201,6 +201,6 @@ alias l='ls -CF'
 #fi
 
 # enable command-not-found if installed
-if [ -f /etc/zsh_command_not_found ]; then
-    . /etc/zsh_command_not_found
+if [ -f /etc/zsh_command_not_found ];then
+ . /etc/zsh_command_not_found
 fi
